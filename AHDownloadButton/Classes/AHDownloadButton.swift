@@ -51,7 +51,17 @@ public final class AHDownloadButton: UIView {
             startDownloadButton.setTitle(startDownloadButtonTitle, for: .normal)
         }
     }
+    public var startDownloadButtonTitleImage: UIImage? {
+        didSet {
+            startDownloadButton.setImage(startDownloadButtonTitleImage?.withRenderingMode(.alwaysTemplate), for: .normal)
+        }
+    }
     
+    public var startDownloadButtonTintColor: UIColor = Color.Blue.light {
+        didSet {
+            startDownloadButton.tintColor = startDownloadButtonTintColor
+        }
+    }
     public var startDownloadButtonTitleFont: UIFont = .boldSystemFont(ofSize: 15) {
         didSet {
             startDownloadButton.titleLabel?.font = startDownloadButtonTitleFont
@@ -326,6 +336,8 @@ public final class AHDownloadButton: UIView {
     private func setUpStartDownloadButtonProperties() {
         startDownloadButton.setTitle(startDownloadButtonTitle, for: .normal)
         startDownloadButton.titleLabel?.font = startDownloadButtonTitleFont
+        startDownloadButton.setImage(startDownloadButtonTitleImage, for: .normal)
+        startDownloadButton.tintColor = startDownloadButtonTintColor
         startDownloadButton.highlightedBackgroundColor = startDownloadButtonHighlightedBackgroundColor
         startDownloadButton.nonhighlightedBackgroundColor = startDownloadButtonNonhighlightedBackgroundColor
         startDownloadButton.highlightedTitleColor = startDownloadButtonHighlightedTitleColor
